@@ -6,7 +6,7 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
-    public TMP_Text textObj;  
+    public TMP_Text textObj;
     public float typingSpeed = 0.05f;  // Delay between each character
     private Coroutine typingCoroutine;
 
@@ -42,6 +42,7 @@ public class TextManager : MonoBehaviour
 
         typingCoroutine = null;  // Reset coroutine reference when finished
     }
+    
 
  
 }
