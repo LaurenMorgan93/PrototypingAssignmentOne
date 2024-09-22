@@ -2489,20 +2489,17 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "Suspect Statement (Harry Franco) Date: July 2nd  Time
-            of Interrogation: 12:15 PM                                    Detective:
-            Its been said you were seen fleeing from the bakery after closing when
-            a fire broke out while the owners wife chased after you last night, around
-            9:00 PM.                                                                                               
-            Harry: That\u2019s an outrageous lie! My shifts had finish before closing
-            at 7:00 PM so me and Lenny went to the local tavern to grab a couple
-            of drinks. I was nowhere near the bakery when it went up in flames since
-            I had been at the tavern all day after my shift.                                                                                                   
-            Detective: Lenny? You mean your coworker who was staying back to help
-            Mrs Hodges clean up the shop and put bread into cold storage?                                                                                             
-            Harry: Did I say Lenny? Who I meant was Lyle, yeah me and him went for
-            some pints after our shifts had ended at 7:00 PM, that fire was nothing
-            to do with me. "
+          m_StringArgument: "Suspect Interview Excerpt <br>(Harry Franco) <br>Date:
+            July 2nd <br><br> Detective: We've been told you were seen fleeing from
+            the bakery when a fire broke out, around 9:00 PM. <br><br> Harry: That\u2019s
+            an outrageous lie!  I was nowhere near their precious bakery when it
+            went up in smoke. My shift finished early so me and Lenny went to the
+            local tavern to grab drinks.<br>                                                                                            
+            Detective: Lenny? You mean your coworker who was working late to help
+            Mrs Hodges clean up the shop and put bread into cold storage? <br><br>Harry:
+            Did I say Lenny? I meant to say Lyle.  Yeah, me and Lyle went for a few
+            beers after our shifts ended at 7:00, so that damn fire was nothing to
+            do with me. "
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
