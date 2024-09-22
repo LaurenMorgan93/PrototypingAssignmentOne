@@ -452,7 +452,12 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: This is the Case Facts Text
+          m_StringArgument: 'CASE NAME: Burnt Cupcakes<br><BR>CASE SUMMARY:<BR>A
+            fire broke out at the local bakery last night at around 9.00PM.<br><br>
+            A number of employees, along with the bakery owner''s wife, were on the
+            premises at the time. <br><br>The prime suspect is bakery employee Harry
+            Franco. <BR><BR>I should review all of the evidence and determine if
+            Mr.Franco is guilty. '
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 964119618}
@@ -530,7 +535,7 @@ GameObject:
   - component: {fileID: 121445225}
   - component: {fileID: 121445224}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Welcome Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4100,7 +4105,7 @@ GameObject:
   - component: {fileID: 1170467578}
   - component: {fileID: 1170467577}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Badge Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4138,7 +4143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8612035, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6888,7 +6893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1850438972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7205,7 +7210,7 @@ GameObject:
   - component: {fileID: 1884591318}
   - component: {fileID: 1884591317}
   m_Layer: 5
-  m_Name: Image Panel
+  m_Name: Right panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
