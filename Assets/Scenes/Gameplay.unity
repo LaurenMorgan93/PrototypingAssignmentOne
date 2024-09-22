@@ -2220,7 +2220,20 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: This is the Suspect Interview Evidence
+          m_StringArgument: "Suspect Statement (Harry Franco) Date: July 2nd  Time
+            of Interrogation: 12:15 PM                                    Detective:
+            Its been said you were seen fleeing from the bakery after closing when
+            a fire broke out while the owners wife chased after you last night, around
+            9:00 PM.                                                                                               
+            Harry: That\u2019s an outrageous lie! My shifts had finish before closing
+            at 7:00 PM so me and Lenny went to the local tavern to grab a couple
+            of drinks. I was nowhere near the bakery when it went up in flames since
+            I had been at the tavern all day after my shift.                                                                                                   
+            Detective: Lenny? You mean your coworker who was staying back to help
+            Mrs Hodges clean up the shop and put bread into cold storage?                                                                                             
+            Harry: Did I say Lenny? Who I meant was Lyle, yeah me and him went for
+            some pints after our shifts had ended at 7:00 PM, that fire was nothing
+            to do with me. "
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1782252849}
@@ -4888,7 +4901,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4905,14 +4918,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5482,7 +5495,23 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: This is the Witness Statement Text
+          m_StringArgument: "Witness Statement (Bakery Owner's Wife: Madeline Hodges)  
+            |Date: July 2nd|   |Time of Statement: 11:00 AM|   It was around 8:15
+            PM, the only workers in the building were Harry and Lenny since Lyle
+            had called in sick, meaning both of them had to stay longer than usual
+            to cover for him. When I was sweeping the floor and putting the bread
+            into cold storage with Lenny I had heard shuffling near the ovens and
+            had seen Harry fiddling around with one of them until it malfunctioned
+            and a fire broke out, once he had realised he had been spotted he darted
+            out of the shop!                                                                            
+            Witness Statement (Bakery worker and coworker of suspect: Lenny Carlton) 
+            |Date: July 2nd|  |Time of Statement: 11:15 AM|   Yeah, I didn\u2019t
+            see Harry run out but I did see Mrs Hodges running out of the shop supposedly
+            chasing after him while I was staying back and helping her put the unsold
+            bread into storage. I helped put out the fire while she chased after
+            him and thankfully was able to quell it before it got out of control.
+            She claimed he was too fast to keep up with and quickly returned back
+            to the shop to tell me to call the authorities. "
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1782252849}
@@ -6409,7 +6438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1850438972
 RectTransform:
   m_ObjectHideFlags: 0
