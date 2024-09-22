@@ -12,24 +12,34 @@ public class ToolTipData : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Start()
     {
-        // Find the TMP_Text object for the tooltip
-        tooltipTMP = GameObject.Find("TooltipText").GetComponent<TMP_Text>();
-        tooltipTMP.gameObject.SetActive(false); // Ensure the tooltip is initially hidden
+        // Find the TMP_Text object for the tooltip in the current object's children
+        tooltipTMP = transform.Find("TooltipText").GetComponent<TMP_Text>();
+        if (tooltipTMP != null)
+        {
+            tooltipTMP.gameObject.SetActive(false); // Ensure the tooltip is initially hidden
+        }
+        else
+        {
+            Debug.LogError("TooltipText object not found in children of " + gameObject.name);
+        }
     }
 
     // When the mouse enters this UI object
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Show the tooltip with the correct text
-        tooltipTMP.text = tooltipText;
-        tooltipTMP.gameObject.SetActive(true);
+        if (tooltipTMP != null)
+        {
+            tooltipTMP.text = tooltipText;
+            tooltipTMP.gameObject.SetActive(true);
+        }
     }
 
     // When the mouse exits this UI object
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Hide the tooltip when no longer hovering
-        tooltipTMP.gameObject.SetActive(false);
+        if (tooltipTMP != null)
+        {
+            tooltipTMP.gameObject.SetActive(false);
+        }
     }
-
 }
