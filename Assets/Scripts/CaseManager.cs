@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
 
@@ -10,6 +11,13 @@ public class CaseManager : MonoBehaviour
     [SerializeField] public List<Case> cases = new();
     public int currentCaseNo; // savedata
     private Case myCurrentCase;
+    [SerializeField] private TextMeshProUGUI outcomeText;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = GetComponent<GameManager>();
+    }
 
     /*public void AdvanceCase(bool decidedGuilty)
     {
@@ -44,22 +52,25 @@ public class CaseManager : MonoBehaviour
     {
         myCurrentCase = cases[currentCaseNo];
         Debug.Log(myCurrentCase.caseName);
-        //myCurrentCase.caseState = Case.CaseState.Completed;
-        //myCurrentCase.UpdateCase(); // update state
 
-        if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty)
+        if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty) // DID THE PLAYER GET IT RIGHT ?
         {
             Debug.Log("YEAHHH");
+
             //myCurrentCase.correctOutcome = true;
             myCurrentCase.UpdateCase(Case.CaseState.Completed, true);
+            gameManager.ChangeCopStanding(10);
         }
-        else {
+        else
+        {
             Debug.Log("NAURRR)"); myCurrentCase.UpdateCase(Case.CaseState.Completed, false);
+            gameManager.ChangeCopStanding(-10);
         }
+
+        outcomeText.text = myCurrentCase.outcomeText;
 
         myCurrentCase.DisableObjects();
 
-        //foreach (GameObject obj in myCurrentCase.caseObjects) { obj.SetActive(false); }
         if (currentCaseNo == cases.Count)
         {
             Debug.Log("reached limit");
@@ -83,6 +94,9 @@ public class CaseManager : MonoBehaviour
         public bool caseSuspectGuilty; // if the correct decision is to find the suspect guilty
         public bool correctOutcome; // if the player made the correct decision in this case
         public List<GameObject> caseObjects;
+        public string outcomeText;
+
+        
 
         public enum CaseState
         {
@@ -95,9 +109,10 @@ public class CaseManager : MonoBehaviour
         {
             //caseNo = _caseNo;
             //caseName = _caseName;;
-            caseState = _caseState;
+            caseState = _caseState; 
             //caseSuspectGuilty = _caseSuspectGuilty;
-            correctOutcome = _correctOutcome;
+            //correctOutcome = _correctOutcome;
+            //correctOutcome = { Get}
             /*for (int i = 0; i < _caseObjects.Count; i++)
             {
                 caseObjects[i] = _caseObjects[i];
@@ -120,9 +135,4 @@ public class CaseManager : MonoBehaviour
             }
         }
     }
-
-    /*Case UpdateCase(Case caseToUpdate)
-    {
-        return new Case { caseNo = caseToUpdate.caseNo, caseName = caseToUpdate.caseName, caseState = caseToUpdate.caseState, caseSuspectGuilty = caseToUpdate.caseSuspectGuilty, correctOutcome = caseToUpdate.correctOutcome, caseObjects = caseToUpdate.caseObjects };
-    }*/
 }

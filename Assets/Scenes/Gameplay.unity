@@ -1425,7 +1425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &465214582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1914,6 +1914,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 607280341}
+        m_TargetAssemblyTypeName: CaseManager, Assembly-CSharp
+        m_MethodName: CompleteCase
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &555915708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2244,6 +2256,7 @@ GameObject:
   - component: {fileID: 607280338}
   - component: {fileID: 607280339}
   - component: {fileID: 607280340}
+  - component: {fileID: 607280341}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2376,6 +2389,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moralityMeter: {fileID: 26849409}
+--- !u!114 &607280341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607280337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381851398fb7ad74faac5482c2f4dbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cases:
+  - caseNo: 1
+    caseName: Bakery
+    caseState: 1
+    caseSuspectGuilty: 1
+    correctOutcome: 0
+    caseObjects: []
+    outcomeText: You solved the bakery case
+  - caseNo: 2
+    caseName: 
+    caseState: 0
+    caseSuspectGuilty: 0
+    correctOutcome: 0
+    caseObjects: []
+    outcomeText: 
+  currentCaseNo: 0
+  outcomeText: {fileID: 1624318362}
 --- !u!1 &611356509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,6 +4451,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 607280341}
+        m_TargetAssemblyTypeName: CaseManager, Assembly-CSharp
+        m_MethodName: CompleteCase
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1246924491
 MonoBehaviour:
