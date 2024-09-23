@@ -463,19 +463,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cases:
   - caseNo: 0
-    caseName: Bakery
-    caseState: 1
-    caseSuspectGuilty: 1
-    correctOutcome: 0
-    caseObjects:
-    - {fileID: 576087888}
-  - caseNo: 1
-    caseName: brehhh
+    caseName: 
     caseState: 0
     caseSuspectGuilty: 0
     correctOutcome: 0
-    caseObjects:
-    - {fileID: 174268853}
+    caseObjects: []
+  - caseNo: 0
+    caseName: 
+    caseState: 0
+    caseSuspectGuilty: 0
+    correctOutcome: 0
+    caseObjects: []
   currentCaseNo: 0
 --- !u!4 &983872187
 Transform:
@@ -489,7 +487,8 @@ Transform:
   m_LocalPosition: {x: 305, y: 171.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1277214189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012014903
@@ -729,6 +728,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223618478}
   m_CullTransparentMesh: 1
+--- !u!1 &1277214188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277214189}
+  m_Layer: 0
+  m_Name: Case1Data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1277214189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277214188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 983872187}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463856773
 GameObject:
   m_ObjectHideFlags: 0
