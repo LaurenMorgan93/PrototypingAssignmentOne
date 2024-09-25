@@ -10,9 +10,12 @@ public class CaseManager : MonoBehaviour
 {
     [SerializeField] public List<Case> cases = new();
     public int currentCaseNo; // savedata
+    public int currentCaseTime; // saveData
     private Case myCurrentCase;
     [SerializeField] private TextMeshProUGUI outcomeText;
     private GameManager gameManager;
+    
+    
 
     private void Awake()
     {
