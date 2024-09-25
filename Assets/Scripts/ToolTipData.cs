@@ -42,4 +42,9 @@ public class ToolTipData : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             tooltipTMP.gameObject.SetActive(false);
         }
     }
+
+    public void changeToolTipText(string newText)
+    {
+        tooltipText = newText;
+    }
 }
