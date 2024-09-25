@@ -1112,13 +1112,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Welcome onboard, Detective. \n\nIt's your first day on the job, and there's
-    already a case on your desk in need of review.\n\nThe local bakery went up in
-    flames last night, and it's up to you to decide if what happened was a tragic
-    accident, or the result of somebody \"arson\" around. \n\nReview the evidence,
-    and decide whether the suspect in this case is GUILTY or INNOCENT. \n\nThere's
-    no room for error in police work rookie, so don't get it wrong or you'll be more
-    fired than those cupcakes. "
+  m_text: "Nice work, Detective.\n\nBut don't start celebrating yet. \nThere's more
+    work to do, and I want you to be quick about it! \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 092c99327560cca4fba951532f79d4fa, type: 2}
   m_sharedMaterial: {fileID: 7769721609497016294, guid: 092c99327560cca4fba951532f79d4fa, type: 2}
