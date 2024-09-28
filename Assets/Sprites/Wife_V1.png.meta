@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ab68cfc312b1644c9a038038e4ede9a
+guid: 8f0ef525ed521f042858847ad7b3e97b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GavelPressed_V1_0
+      name: Wife_V1_0
       rect:
         serializedVersion: 2
-        x: 96
-        y: 162
-        width: 569
-        height: 435
+        x: 70
+        y: 70
+        width: 661
+        height: 637
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba143a13db1f7b48854e2549f675fb0
-      internalID: -1531492343
+      spriteID: 442b4c62ec3ff4c40a9d3944bdacd74e
+      internalID: -125558671
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GavelPressed_V1_0: -1531492343
+      Wife_V1_0: -125558671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

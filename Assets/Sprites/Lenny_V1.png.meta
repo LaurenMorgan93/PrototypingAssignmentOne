@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ab68cfc312b1644c9a038038e4ede9a
+guid: 03db4e4684907af4cbdbb45895a14f85
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GavelPressed_V1_0
+      name: Lenny_V1_0
       rect:
         serializedVersion: 2
-        x: 96
-        y: 162
-        width: 569
-        height: 435
+        x: 70
+        y: 70
+        width: 661
+        height: 637
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba143a13db1f7b48854e2549f675fb0
-      internalID: -1531492343
+      spriteID: 6004049ad53e01d418b76d00fe8e51d5
+      internalID: -691234415
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GavelPressed_V1_0: -1531492343
+      Lenny_V1_0: -691234415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
