@@ -1346,6 +1346,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 607280343}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SpendTime
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 30
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &147850920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3399,6 +3411,7 @@ GameObject:
   - component: {fileID: 555915709}
   - component: {fileID: 555915708}
   - component: {fileID: 555915707}
+  - component: {fileID: 555915711}
   m_Layer: 5
   m_Name: Guilty
   m_TagString: Untagged
@@ -3506,9 +3519,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 607280341}
-        m_TargetAssemblyTypeName: CaseManager, Assembly-CSharp
-        m_MethodName: CompleteCase
+      - m_Target: {fileID: 555915711}
+        m_TargetAssemblyTypeName: DecisionButtonScript, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3569,6 +3582,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: CHARGE THE SUSPECT
+--- !u!114 &555915711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555915705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719af3b3e3925349918b4894dce2445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &580233548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,7 +3788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadTimeCost: 30
   spendTimeButton: {fileID: 1973715151}
-  caseManagementScript: {fileID: 607280341}
+  timeManagementScript: {fileID: 0}
 --- !u!1 &588278304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4177,8 +4202,8 @@ GameObject:
   - component: {fileID: 607280338}
   - component: {fileID: 607280342}
   - component: {fileID: 607280340}
-  - component: {fileID: 607280341}
   - component: {fileID: 607280339}
+  - component: {fileID: 607280343}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4311,36 +4336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moralityMeter: {fileID: 26849409}
---- !u!114 &607280341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607280337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381851398fb7ad74faac5482c2f4dbaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cases:
-  - caseNo: 1
-    caseName: Bakery
-    caseState: 1
-    caseSuspectGuilty: 1
-    correctOutcome: 0
-    caseObjects: []
-    outcomeText: You solved the bakery case
-  - caseNo: 2
-    caseName: 
-    caseState: 0
-    caseSuspectGuilty: 0
-    correctOutcome: 0
-    caseObjects: []
-    outcomeText: 
-  currentCaseNo: 0
-  currentCaseTime: 120
-  outcomeText: {fileID: 1624318362}
 --- !u!114 &607280342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4353,6 +4348,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46892d32d3058c3419a783df197b4db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &607280343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607280337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8310887918e23043b6b865325870932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 0
+  currentTime: 0
+  displayTimeText: {fileID: 0}
 --- !u!1 &611356509
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,6 +6773,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: READ
+--- !u!1 &1093583476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093583478}
+  - component: {fileID: 1093583477}
+  m_Layer: 0
+  m_Name: CaseManager TEMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1093583477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093583476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381851398fb7ad74faac5482c2f4dbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cases:
+  - caseNo: 1
+    caseName: Bakery
+    myCaseState: 0
+    caseSuspectGuilty: 1
+    correctOutcome: 0
+    caseObjects: []
+    caseTime: 0
+  - caseNo: 2
+    caseName: 
+    myCaseState: 0
+    caseSuspectGuilty: 0
+    correctOutcome: 0
+    caseObjects: []
+    caseTime: 0
+  currentCaseNo: 0
+  myCurrentCase:
+    caseNo: 0
+    caseName: 
+    myCaseState: 0
+    caseSuspectGuilty: 0
+    correctOutcome: 0
+    caseObjects: []
+    caseTime: 0
+  startingCaseNo: 2
+--- !u!4 &1093583478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093583476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 600.5508, y: 81.41264, z: -1.8980851}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1115501992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7049,7 +7128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadTimeCost: 60
   spendTimeButton: {fileID: 147850919}
-  caseManagementScript: {fileID: 607280341}
+  timeManagementScript: {fileID: 0}
 --- !u!1 &1155368060
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,6 +7780,7 @@ GameObject:
   - component: {fileID: 1246924492}
   - component: {fileID: 1246924491}
   - component: {fileID: 1246924490}
+  - component: {fileID: 1246924494}
   m_Layer: 5
   m_Name: Innocent
   m_TagString: Untagged
@@ -7796,9 +7876,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 607280341}
-        m_TargetAssemblyTypeName: CaseManager, Assembly-CSharp
-        m_MethodName: CompleteCase
+      - m_Target: {fileID: 1246924494}
+        m_TargetAssemblyTypeName: DecisionButtonScript, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7859,6 +7939,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: RELEASE THE SUSPECT
+--- !u!114 &1246924494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246924488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719af3b3e3925349918b4894dce2445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1247209008
 GameObject:
   m_ObjectHideFlags: 0
@@ -8904,6 +8996,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 607280343}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SpendTime
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 30
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1353630830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9580,7 +9684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadTimeCost: 60
   spendTimeButton: {fileID: 1353630829}
-  caseManagementScript: {fileID: 607280341}
+  timeManagementScript: {fileID: 0}
 --- !u!114 &1475423957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10118,7 +10222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadTimeCost: 60
   spendTimeButton: {fileID: 1655359545}
-  caseManagementScript: {fileID: 607280341}
+  timeManagementScript: {fileID: 0}
 --- !u!1 &1504326014
 GameObject:
   m_ObjectHideFlags: 0
@@ -11460,6 +11564,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 607280343}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SpendTime
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 180
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13142,7 +13258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadTimeCost: 60
   spendTimeButton: {fileID: 1818276414}
-  caseManagementScript: {fileID: 607280341}
+  timeManagementScript: {fileID: 0}
 --- !u!1 &1818276412
 GameObject:
   m_ObjectHideFlags: 0
@@ -13289,6 +13405,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: TimerChecker, Assembly-CSharp
         m_MethodName: flagEvidenceAsPurchased
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 607280343}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SpendTime
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14740,6 +14868,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 607280343}
+        m_TargetAssemblyTypeName: TimeManager, Assembly-CSharp
+        m_MethodName: SpendTime
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 30
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1973715152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15469,3 +15609,4 @@ SceneRoots:
   - {fileID: 794744508}
   - {fileID: 1504326017}
   - {fileID: 607280338}
+  - {fileID: 1093583478}
