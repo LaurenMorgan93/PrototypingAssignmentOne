@@ -2,89 +2,88 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using System.Runtime.CompilerServices;
 using UnityEditor.SearchService;
 using UnityEngine;
 
 public class CaseManager : MonoBehaviour
 {
-    [SerializeField] public List<Case> cases = new();
+    public Case[] cases; // Manually set how many we want in InitialiseCases()
     public int currentCaseNo; // savedata
-    public int currentCaseTime; // saveData
-    private Case myCurrentCase;
-    [SerializeField] private TextMeshProUGUI outcomeText;
-    private GameManager gameManager;
-    
-    
+    [SerializeField] private Case myCurrentCase;
+    private TimeManager timeManager;
 
     private void Awake()
     {
-        gameManager = GetComponent<GameManager>();
+        timeManager = GetComponent<TimeManager>();
+        InitialiseCases();
+        currentCaseNo = 1; // take out if savedata implemented
     }
 
-    /*public void AdvanceCase(bool decidedGuilty)
+    void InitialiseCases() 
     {
-        myCurrentCase = cases[currentCaseNo];
-
-        switch (myCurrentCase.caseState)
+        cases = new Case[2]; // As we finish cases we can manually update this
+        for (int i = 0; i < cases.Length; i++)
         {
-            case (Case.CaseState.Unstarted):
-                {
-                    myCurrentCase.caseState = Case.CaseState.Active;
-                    break;
-                }
-            case (Case.CaseState.Active):
-                {
-                    CompleteCase(decidedGuilty);
-                    break;
-                }
-            case (Case.CaseState.Completed):
-                {
-                    Debug.Log("Trying to advance on an already completed case : (");
-                    break;
-                }
-            default:
-                {
-                    // panic
-                    break;
-                }
+            cases[i].caseNo = i+1;
+            switch (i)
+            {
+                case 0: // We will manually set the details of the case in the initaliser
+                    {   // I'm sure there is a prettier method but my head is fried rn
+                        // We could make arrays for handling the data that will be initialised
+                        cases[i].caseName = "Arson";
+                        cases[i].caseSuspectGuilty = true;
+                        cases[i].caseTime = 110;
+                        break;
+                    }
+                case 1:
+                    {
+                        cases[i].caseName = "Forgor";
+                        cases[i].caseSuspectGuilty = false;
+                        cases[i].caseTime = 120;
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("HEEEEEEEEEEELP");
+                        break;
+                    }
+            }
         }
-    }*/
+        cases[0].MyCaseState = Case.CaseState.Active;
+        myCurrentCase = cases[0];
+        timeManager.maxTime = cases[0].caseTime;
+        timeManager.ResetTime();
+    }
 
     public void CompleteCase(bool decidedGuilty)
     {
-        myCurrentCase = cases[currentCaseNo];
-        Debug.Log(myCurrentCase.caseName);
-
-        if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty) // DID THE PLAYER GET IT RIGHT ?
+        //Debug.Log(myCurrentCase.caseName);
+        if (myCurrentCase.MyCaseState != Case.CaseState.Completed)
         {
-            Debug.Log("YEAHHH");
+            if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty)
+            {
+                Debug.Log("YEAHHH");
+                myCurrentCase.UpdateCase(Case.CaseState.Completed, true);
+            }
+            else
+            {
+                Debug.Log("NAURRR"); myCurrentCase.UpdateCase(Case.CaseState.Completed, false);
+            }
 
-            //myCurrentCase.correctOutcome = true;
-            myCurrentCase.UpdateCase(Case.CaseState.Completed, true);
-            gameManager.ChangeCopStanding(10);
-        }
-        else
-        {
-            Debug.Log("NAURRR)"); myCurrentCase.UpdateCase(Case.CaseState.Completed, false);
-            gameManager.ChangeCopStanding(-10);
-        }
+            myCurrentCase.DisableObjects();
 
-        outcomeText.text = myCurrentCase.outcomeText;
+            cases[currentCaseNo - 1] = myCurrentCase;
 
-        myCurrentCase.DisableObjects();
-
-        if (currentCaseNo == cases.Count)
-        {
-            Debug.Log("reached limit");
-            // END THE GAME
-        }
-        else
-        {
-            currentCaseNo++;
-            myCurrentCase = cases[currentCaseNo-1];
-            myCurrentCase.caseState = Case.CaseState.Active;
-            myCurrentCase.EnableObjects();
+            if (myCurrentCase.caseNo < cases.Length)
+            {
+                currentCaseNo++;
+                myCurrentCase = cases[currentCaseNo-1];
+                myCurrentCase.UpdateCase(Case.CaseState.Active, false);
+                myCurrentCase.EnableObjects();
+                timeManager.maxTime = myCurrentCase.caseTime;
+                timeManager.ResetTime();
+            }
         }
     }
 
@@ -93,13 +92,21 @@ public class CaseManager : MonoBehaviour
     {
         public int caseNo;
         public string caseName;
-        public CaseState caseState; // savedata
+        [SerializeField] private CaseState myCaseState; // savedata
+        public CaseState MyCaseState
+        {
+            get { return myCaseState; }
+            set { myCaseState = value; }
+        }
         public bool caseSuspectGuilty; // if the correct decision is to find the suspect guilty
-        public bool correctOutcome; // if the player made the correct decision in this case
+        [SerializeField] private bool correctOutcome; // if the player made the correct decision in this case
+        public bool CorrectOutcome
+        {
+            get { return correctOutcome; }
+            set { correctOutcome = value; }
+        }
         public List<GameObject> caseObjects;
-        public string outcomeText;
-
-        
+        public int caseTime; // How much time the player has to solve this case 
 
         public enum CaseState
         {
@@ -108,33 +115,31 @@ public class CaseManager : MonoBehaviour
             Completed
         }
         
-        public void UpdateCase(/*int _caseNo, string _caseName, */CaseState _caseState, /*bool _caseSuspectGuilty,*/ bool _correctOutcome /*List<GameObject> _caseObjects*/)
+        public void UpdateCase(CaseState _caseState, bool _correctOutcome) // Only need to update the variables that will change. e.g. caseNo is a predefined variable to indicate the order of the cases, and won't change
         {
-            //caseNo = _caseNo;
-            //caseName = _caseName;;
-            caseState = _caseState; 
-            //caseSuspectGuilty = _caseSuspectGuilty;
-            //correctOutcome = _correctOutcome;
-            //correctOutcome = { Get}
-            /*for (int i = 0; i < _caseObjects.Count; i++)
-            {
-                caseObjects[i] = _caseObjects[i];
-            }*/
+            MyCaseState = _caseState;
+            CorrectOutcome = _correctOutcome;
         }
 
         public void DisableObjects()
         {
-            for (int i = 0; i < caseObjects.Count; i++)
+            if (caseObjects != null)
             {
-                caseObjects[i].SetActive(false);
+                for (int i = 0; i < caseObjects.Count; i++)
+                {
+                    caseObjects[i].SetActive(false);
+                }
             }
         }
 
         public void EnableObjects()
         {
-            for (int i = 0; i < caseObjects.Count; i++)
+            if (caseObjects != null)
             {
-                caseObjects[i].SetActive(true);
+                for (int i = 0; i < caseObjects.Count; i++)
+                {
+                    caseObjects[i].SetActive(true);
+                }
             }
         }
     }
