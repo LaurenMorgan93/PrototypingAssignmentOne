@@ -12,28 +12,12 @@ public class CaseManager : MonoBehaviour
     public int currentCaseNo; // savedata
     [SerializeField] private Case myCurrentCase;
     private TimeManager timeManager;
-<<<<<<< Updated upstream
 
     private void Awake()
     {
         timeManager = GetComponent<TimeManager>();
         InitialiseCases();
         currentCaseNo = 1; // take out if savedata implemented
-=======
-    [SerializeField] private int startingCaseNo;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        timeManager = FindObjectOfType<TimeManager>();
-
-        if (!startupPerformed)
-        {
-            InitialiseCases();
-            currentCaseNo = startingCaseNo; // take out if savedata implemented
-            startupPerformed = true;
-        }
->>>>>>> Stashed changes
     }
 
     void InitialiseCases() 
@@ -42,7 +26,6 @@ public class CaseManager : MonoBehaviour
         for (int i = 0; i < cases.Length; i++)
         {
             cases[i].caseNo = i+1;
-
             switch (i)
             {
                 case 0: // We will manually set the details of the case in the initaliser
@@ -66,18 +49,10 @@ public class CaseManager : MonoBehaviour
                         break;
                     }
             }
-            if (startingCaseNo > i+1)
-            {
-                cases[i].UpdateCase(Case.CaseState.Completed, true);
-            }
-            else if (startingCaseNo == i+1)
-            {
-                cases[i].UpdateCase(Case.CaseState.Active, false);
-            }
         }
-        //cases[0].MyCaseState = Case.CaseState.Active;
-        myCurrentCase = cases[startingCaseNo-1];
-        timeManager.maxTime = cases[startingCaseNo-1].caseTime;
+        cases[0].MyCaseState = Case.CaseState.Active;
+        myCurrentCase = cases[0];
+        timeManager.maxTime = cases[0].caseTime;
         timeManager.ResetTime();
     }
 
