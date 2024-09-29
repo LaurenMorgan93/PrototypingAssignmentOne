@@ -462,23 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381851398fb7ad74faac5482c2f4dbaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cases:
-  - caseNo: 1
-    caseName: Arson
-    myCaseState: 1
-    caseSuspectGuilty: 1
-    correctOutcome: 0
-    caseObjects:
-    - {fileID: 576087888}
-    caseTime: 0
-  - caseNo: 2
-    caseName: Bloke
-    myCaseState: 0
-    caseSuspectGuilty: 0
-    correctOutcome: 0
-    caseObjects:
-    - {fileID: 174268853}
-    caseTime: 0
+  cases: []
   currentCaseNo: 0
   myCurrentCase:
     caseNo: 0

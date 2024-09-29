@@ -17,52 +17,77 @@ public class CaseManager : MonoBehaviour
     {
         timeManager = GetComponent<TimeManager>();
         InitialiseCases();
+        currentCaseNo = 1; // take out if savedata implemented
     }
 
     void InitialiseCases() 
     {
-        cases = new Case[2];
-        
+        cases = new Case[2]; // As we finish cases we can manually update this
+        for (int i = 0; i < cases.Length; i++)
+        {
+            cases[i].caseNo = i+1;
+            switch (i)
+            {
+                case 0: // We will manually set the details of the case in the initaliser
+                    {   // I'm sure there is a prettier method but my head is fried rn
+                        // We could make arrays for handling the data that will be initialised
+                        cases[i].caseName = "Arson";
+                        cases[i].caseSuspectGuilty = true;
+                        cases[i].caseTime = 110;
+                        break;
+                    }
+                case 1:
+                    {
+                        cases[i].caseName = "Forgor";
+                        cases[i].caseSuspectGuilty = false;
+                        cases[i].caseTime = 120;
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("HEEEEEEEEEEELP");
+                        break;
+                    }
+            }
+        }
+        cases[0].MyCaseState = Case.CaseState.Active;
+        myCurrentCase = cases[0];
+        timeManager.maxTime = cases[0].caseTime;
+        timeManager.ResetTime();
     }
 
     public void CompleteCase(bool decidedGuilty)
     {
-        myCurrentCase = cases[currentCaseNo];
-        Debug.Log(myCurrentCase.caseName);
-        //myCurrentCase.caseState = Case.CaseState.Completed;
-        //myCurrentCase.UpdateCase(); // update state
-
-        if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty)
+        //Debug.Log(myCurrentCase.caseName);
+        if (myCurrentCase.MyCaseState != Case.CaseState.Completed)
         {
-            Debug.Log("YEAHHH");
-            //myCurrentCase.correctOutcome = true;
-            myCurrentCase.UpdateCase(Case.CaseState.Completed, true);
-        }
-        else {
-            Debug.Log("NAURRR"); myCurrentCase.UpdateCase(Case.CaseState.Completed, false);
-        }
+            if (decidedGuilty && myCurrentCase.caseSuspectGuilty || !decidedGuilty && !myCurrentCase.caseSuspectGuilty)
+            {
+                Debug.Log("YEAHHH");
+                myCurrentCase.UpdateCase(Case.CaseState.Completed, true);
+            }
+            else
+            {
+                Debug.Log("NAURRR"); myCurrentCase.UpdateCase(Case.CaseState.Completed, false);
+            }
 
-        myCurrentCase.DisableObjects();
+            myCurrentCase.DisableObjects();
 
-        //foreach (GameObject obj in myCurrentCase.caseObjects) { obj.SetActive(false); }
-        if (currentCaseNo == cases.Length)
-        {
-            Debug.Log("reached limit");
-            // END THE GAME
-        }
-        else // ADVANCE CASE
-        {
-            currentCaseNo++;
-            myCurrentCase = cases[currentCaseNo-1];
-            //myCurrentCase.myCaseState = Case.CaseState.Active; //UpdateCase()
-            myCurrentCase.UpdateCase(Case.CaseState.Active, false);
-            myCurrentCase.EnableObjects();
-            timeManager.maxTime = myCurrentCase.caseTime;
-            timeManager.ResetTime();
+            cases[currentCaseNo - 1] = myCurrentCase;
+
+            if (myCurrentCase.caseNo < cases.Length)
+            {
+                currentCaseNo++;
+                myCurrentCase = cases[currentCaseNo-1];
+                myCurrentCase.UpdateCase(Case.CaseState.Active, false);
+                myCurrentCase.EnableObjects();
+                timeManager.maxTime = myCurrentCase.caseTime;
+                timeManager.ResetTime();
+            }
         }
     }
 
-    //[Serializable]
+    [Serializable]
     public struct Case
     {
         public int caseNo;
@@ -98,17 +123,23 @@ public class CaseManager : MonoBehaviour
 
         public void DisableObjects()
         {
-            for (int i = 0; i < caseObjects.Count; i++)
+            if (caseObjects != null)
             {
-                caseObjects[i].SetActive(false);
+                for (int i = 0; i < caseObjects.Count; i++)
+                {
+                    caseObjects[i].SetActive(false);
+                }
             }
         }
 
         public void EnableObjects()
         {
-            for (int i = 0; i < caseObjects.Count; i++)
+            if (caseObjects != null)
             {
-                caseObjects[i].SetActive(true);
+                for (int i = 0; i < caseObjects.Count; i++)
+                {
+                    caseObjects[i].SetActive(true);
+                }
             }
         }
     }
