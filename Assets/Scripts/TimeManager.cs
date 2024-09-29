@@ -17,16 +17,21 @@ public class TimeManager : MonoBehaviour
     public void ResetTime()
     {
         currentTime = maxTime;
+        UpdateTimeDisplay();
     }
 
     public void UpdateTimeDisplay()
     {
-        displayTimeText.text  = currentTime.ToString();
+        if (displayTimeText != null)
+        {
+            displayTimeText.text = currentTime.ToString();
+        }
     }
 
     public void SpendTime(int timeCost)
     {
-        if (currentTime < maxTime) // Catch in case current time has increased unexpectedly
+        Debug.Log("Time before spending: " + currentTime);
+        if (currentTime > maxTime) // Catch in case current time has increased unexpectedly
         {
             currentTime = maxTime;
         }
@@ -46,5 +51,6 @@ public class TimeManager : MonoBehaviour
         {
             currentTime = 0;
         }
+        Debug.Log("Time after spending: " + currentTime);
     }
 }

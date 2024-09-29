@@ -5,19 +5,26 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CaseManager : MonoBehaviour
 {
     public Case[] cases; // Manually set how many we want in InitialiseCases()
+    static public bool startupPerformed;
     public int currentCaseNo; // savedata
     [SerializeField] private Case myCurrentCase;
-    private TimeManager timeManager;
+    [SerializeField] private TimeManager timeManager;
 
     private void Awake()
     {
-        timeManager = GetComponent<TimeManager>();
-        InitialiseCases();
-        currentCaseNo = 1; // take out if savedata implemented
+        DontDestroyOnLoad(gameObject);
+        if (!startupPerformed)
+        {
+            timeManager = FindObjectOfType<TimeManager>();
+            InitialiseCases();
+            currentCaseNo = 1; // take out if savedata implemented
+            startupPerformed = true;
+        }
     }
 
     void InitialiseCases() 
@@ -33,14 +40,14 @@ public class CaseManager : MonoBehaviour
                         // We could make arrays for handling the data that will be initialised
                         cases[i].caseName = "Arson";
                         cases[i].caseSuspectGuilty = true;
-                        cases[i].caseTime = 110;
+                        cases[i].caseTime = 240;
                         break;
                     }
                 case 1:
                     {
                         cases[i].caseName = "Forgor";
                         cases[i].caseSuspectGuilty = false;
-                        cases[i].caseTime = 120;
+                        cases[i].caseTime = 300;
                         break;
                     }
                 default:
@@ -142,5 +149,10 @@ public class CaseManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SwitchScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

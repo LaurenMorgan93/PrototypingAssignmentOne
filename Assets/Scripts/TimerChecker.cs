@@ -16,13 +16,14 @@ public class TimerChecker : MonoBehaviour
 
     private bool alreadyPurchased = false;
 
-    //reference to the CaseManager script where the timer is handled / saved
-    public CaseManager caseManagementScript;
+    //reference to the TimeManager script where the timer is handled / saved
+    public TimeManager timeManagementScript;
 
     void OnEnable() // this checker is called every time the relevant panel is opened (Set Active) by the player. 
     {
+        timeManagementScript = FindObjectOfType<TimeManager>(); // This is really slow and inoptimal but for a prototype it shouldnt make a difference, just didn't want to have to update the scene on git -Daragh
         // check the CaseManager script for the player's remaining time. 
-        playerTimeRemaining = caseManagementScript.currentCaseTime;
+        playerTimeRemaining = timeManagementScript.currentTime;
         
        
         // if the player does not have enough time remaining to unlock this evidence 
