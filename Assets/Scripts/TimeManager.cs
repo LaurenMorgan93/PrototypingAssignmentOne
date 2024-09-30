@@ -8,10 +8,18 @@ public class TimeManager : MonoBehaviour
 {
     public int maxTime, currentTime;
     public TextMeshProUGUI displayTimeText;
+    private CaseManager caseManager;
 
     public void Awake()
     {
-        ResetTime(); // if we implement save data, remove this
+        //ResetTime(); // if we implement save data, remove this
+    }
+
+    private void OnEnable()
+    {
+        caseManager = FindObjectOfType<CaseManager>();
+        maxTime = caseManager.myCurrentCase.caseTime;
+        ResetTime();
     }
 
     public void ResetTime()
@@ -24,7 +32,7 @@ public class TimeManager : MonoBehaviour
     {
         if (displayTimeText != null)
         {
-            displayTimeText.text = currentTime.ToString();
+            displayTimeText.text = "Time remaining : " + currentTime.ToString();
         }
     }
 
@@ -52,5 +60,6 @@ public class TimeManager : MonoBehaviour
             currentTime = 0;
         }
         Debug.Log("Time after spending: " + currentTime);
+        UpdateTimeDisplay();
     }
 }

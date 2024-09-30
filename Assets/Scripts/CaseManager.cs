@@ -12,7 +12,7 @@ public class CaseManager : MonoBehaviour
     public Case[] cases; // Manually set how many we want in InitialiseCases()
     static public bool startupPerformed;
     public int currentCaseNo; // savedata
-    [SerializeField] private Case myCurrentCase;
+    [HideInInspector] public Case myCurrentCase;
     private TimeManager timeManager;
     [SerializeField] private int startingCaseNo;
 
@@ -26,6 +26,7 @@ public class CaseManager : MonoBehaviour
             InitialiseCases();
             startupPerformed = true;
         }
+        timeManager.ResetTime();
     }
 
     void InitialiseCases() 
@@ -39,16 +40,16 @@ public class CaseManager : MonoBehaviour
                 case 0: // We will manually set the details of the case in the initaliser
                     {   // I'm sure there is a prettier method but my head is fried rn
                         // We could make arrays for handling the data that will be initialised
-                        cases[i].caseName = "Arson";
+                        cases[i].caseName = "Burnt Cupcakes </3";
                         cases[i].caseSuspectGuilty = true;
                         cases[i].caseTime = 240;
                         break;
                     }
                 case 1:
                     {
-                        cases[i].caseName = "Forgor";
+                        cases[i].caseName = "AN Untimely Death";
                         cases[i].caseSuspectGuilty = false;
-                        cases[i].caseTime = 300;
+                        cases[i].caseTime = 270;
                         break;
                     }
                 default:
