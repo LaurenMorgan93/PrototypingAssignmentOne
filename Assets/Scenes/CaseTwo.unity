@@ -3004,8 +3004,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289391871
+  m_fontColor: {r: 1, g: 0.92616147, b: 0.6650944, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3088,8 +3088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 291, y: -91.309}
-  m_SizeDelta: {x: 453.108, y: 150}
+  m_AnchoredPosition: {x: 717.44, y: -91.309}
+  m_SizeDelta: {x: 1306, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
@@ -5343,11 +5343,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 533584710}
+  - {fileID: 483690495}
   - {fileID: 703064813}
   - {fileID: 1713625437}
   - {fileID: 1850438972}
   - {fileID: 1860239432}
-  - {fileID: 483690495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7204,7 +7204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f93e16d3b02ae249a081412ad195024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadTimeCost: 60
+  leadTimeCost: 30
   spendTimeButton: {fileID: 147850919}
   timeManagementScript: {fileID: 0}
 --- !u!1 &1155368060
@@ -8133,7 +8133,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Case #2
+          m_StringArgument: EndGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1247209011
@@ -9772,7 +9772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f93e16d3b02ae249a081412ad195024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadTimeCost: 60
+  leadTimeCost: 30
   spendTimeButton: {fileID: 1353630829}
   timeManagementScript: {fileID: 0}
 --- !u!114 &1475423957
@@ -10100,8 +10100,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e6d13ec0ed83d004cb8ef12b1ee572e7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10310,7 +10310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f93e16d3b02ae249a081412ad195024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadTimeCost: 60
+  leadTimeCost: 180
   spendTimeButton: {fileID: 1655359545}
   timeManagementScript: {fileID: 0}
 --- !u!1 &1504326014
@@ -11216,7 +11216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1624318361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12047,8 +12047,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7b48d6e37192b4f49aeedb80fec36b68, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12704,8 +12704,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 09e1a40dd2e9cf04d912c4dc91bce901, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12779,8 +12779,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 506c3862597c11744acd07c183c44c46, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13987,7 +13987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1850438972
 RectTransform:
   m_ObjectHideFlags: 0

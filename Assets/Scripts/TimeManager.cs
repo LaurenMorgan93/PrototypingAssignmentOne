@@ -55,10 +55,6 @@ public class TimeManager : MonoBehaviour
             currentTime = 0;
             return;
         }
-        if (currentTime == 0)
-        {
-            currentTime = 0;
-        }
         Debug.Log("Time after spending: " + currentTime);
         UpdateTimeDisplay();
     }

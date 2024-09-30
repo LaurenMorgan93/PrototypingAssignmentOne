@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaseTwo.unity
     guid: 5fbef1eaeb25a014da1ff2d2152f73a9
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 85121b33537318a4599303b024ef2929
   m_configObjects: {}
